@@ -1,0 +1,15 @@
+
+*.o
+Euler
+test5_geom
+test5_flow
+test4_geom
+test4_flow
+test3_geom
+test3_flow
+test2_geom
+test2_flow
+test1_geom
+test1_flow
+test0_geom
+test0_flow
