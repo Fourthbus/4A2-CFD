@@ -1,7 +1,7 @@
 clear all
 
-nx = 180;
-ny = 60;
+nx = 120;
+ny = 40;
 
 filename = 'geom';
 

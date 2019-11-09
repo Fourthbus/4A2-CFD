@@ -75,7 +75,6 @@
 
         call set_others
 
-
 ! "apply_bconds" to apply inlet and outlet values at the boundaries of the domain.
 
         call apply_bconds

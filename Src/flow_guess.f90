@@ -99,6 +99,7 @@
           roe(i,j)  = ro(ip,j) * e
         enddo
       enddo
+
      
 ! Store the "old" values of the variables for use in the first
 ! convergence check in subroutine "check_conv"
@@ -110,6 +111,6 @@
           rovy_old(i,j) = rovy(i,j)
           roe_old(i,j)  = roe(i,j)
         end do
-      end do      
+      end do
 
       end
