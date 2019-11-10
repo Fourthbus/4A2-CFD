@@ -19,7 +19,6 @@
 ! Note:  "hstag"  not  "ho".
 
 ! INSERT your code here
-
       do i = 1,ni
          do j = 1,nj
             vx(i,j)    = rovx(i,j) / ro(i,j)

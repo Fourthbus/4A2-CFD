@@ -75,7 +75,6 @@
 
         call set_others
 
-
 ! "apply_bconds" to apply inlet and outlet values at the boundaries of the domain.
 
         call apply_bconds
@@ -112,7 +111,7 @@
 
 ! Check convergence and write out summary every 5 steps
 
-        if(mod(nstep,20)==0) then
+        if(mod(nstep,5)==0) then
           call check_conv
         end if
 
