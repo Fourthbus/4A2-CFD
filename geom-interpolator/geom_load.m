@@ -1,7 +1,7 @@
 clear all
 
-nx = 210;
-ny = 70;
+nx = 300;
+ny = 120;
 
 filename = 'geom';
 
@@ -47,5 +47,5 @@ axis equal
 fileID = fopen('geom_hd','w');
 fprintf(fileID,'%s\n','Nozzle');
 fprintf(fileID,'%3.0f %3.0f\n',nx,ny);
-fprintf(fileID,'%2.5f %2.5f %2.5f %2.5f\n',transpose([xl_hd, yl_hd, xu_hd, yu_hd]));
+fprintf(fileID,'%2.8f %2.8f %2.8f %2.8f\n',transpose([xl_hd, yl_hd, xu_hd, yu_hd]));
 fclose(fileID);
