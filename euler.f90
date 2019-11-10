@@ -112,7 +112,7 @@
 
 ! Check convergence and write out summary every 5 steps
 
-        if(mod(nstep,5)==0) then
+        if(mod(nstep,20)==0) then
           call check_conv
         end if
 

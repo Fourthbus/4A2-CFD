@@ -99,10 +99,10 @@
 
 ! Write a short output summary to the screen.
 
-!      flow_ratio = flow(ni)/flow(1)
-!      write(*,*) ' time step number ', nstep
-!      write(*,600) emax,imax,jmax,eavg
-!  600 format(' emax= ',e10.3,' at imax = ',i5,' jmax= ',i5,' eavg= ', e10.3)
-!      write(6,*) 'inlet flow= ',flow(1),' outlet to inlet flow ratio', flow_ratio
+      flow_ratio = flow(ni)/flow(1)
+      write(*,*) ' time step number ', nstep
+      write(*,600) emax,imax,jmax,eavg
+  600 format(' emax= ',e10.3,' at imax = ',i5,' jmax= ',i5,' eavg= ', e10.3)
+      write(6,*) 'inlet flow= ',flow(1),' outlet to inlet flow ratio', flow_ratio
 
       end
