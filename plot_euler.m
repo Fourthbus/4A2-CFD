@@ -1,6 +1,6 @@
 close all;
 clear
-fin = fopen('../Output/Fine mesh 500k/euler.mat','r');
+fin = fopen('euler.mat','r');
 data = fscanf(fin,'%f');
 ni = data(1,1);
 nj = data(2,1);
