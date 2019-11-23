@@ -1,6 +1,16 @@
 close all;
 clear
-fin = fopen('euler.mat','r');
+%
+% Change here for different plots %
+%
+stage = 'Optimise';
+%
+testno = '1';
+%
+% % % % % % % % % % % % % % % % % % 
+%
+% euler bit
+fin = fopen(['output/' stage '/euler_test' testno '.mat'],'r');
 data = fscanf(fin,'%f');
 ni = data(1,1);
 nj = data(2,1);
@@ -67,6 +77,9 @@ for i=1:ni
     p0(i,j) = p(i,j)*(1.+.5*(gam-1.)*mach(i,j)^2)^(gam/(gam-1));
   end 
 end
+hold off
+%
+% Contour pstat
 %
 figure('Name','Stagnation Pressure');
 hold on
@@ -78,6 +91,9 @@ p0max = max(max(p0));
 p0min = min(min(p0));
 title (['$P_{0,max}=' num2str(p0max,'%10.4e\n') '\qquad P_{0,min}=' num2str(p0min,'%10.4e\n') '$'],'interpreter','latex')
 colorbar
+hold off
+%
+% Contour Mach number
 %
 figure('Name','Mach Number');
 hold on
@@ -99,7 +115,9 @@ for i=1:ni
     ds(i,j) = cv*log(p(i,j)/p(1,1))+cp*log(ro(1,1)/ro(i,j));
   end 
 end
-
+hold off
+%
+% Contour relative entropy
 %
 figure('Name','Entropy');
 hold on
@@ -110,4 +128,33 @@ plot(x(:,nj),y(:,nj),'b','LineWidth',1);
 dsmax = max(max(ds));
 title (['$ds_{max}=' num2str(dsmax,'%10.2f\n') '$'],'interpreter','latex')
 colorbar
+hold off
+%
+%
+% CONVERGENCE PLOT %
+%
+% euler bit
+pltconv_file = ['output/' stage '/pltcv_test' testno '.csv'];
+pltconv = csvread (pltconv_file);
+nstep       = pltconv(:,1);
+delroavg    = pltconv(:,2);
+delrovxavg  = pltconv(:,3);
+delrovyavg  = pltconv(:,4);
+delroeavg   = pltconv(:,5);
+%
+figure('Name','Convergence');
+hold on
+plot (nstep,log10(delroavg),'DisplayName','$\rho$')
+plot (nstep,log10(delrovxavg),'DisplayName','$V_x$')
+plot (nstep,log10(delrovyavg),'DisplayName','$V_y$')
+try
+    plot (nstep,log10(delroeavg),'DisplayName','$E$')
+end
+xlim([nstep(1),nstep(end)]);
+xlabel('Number of iterations','Interpreter','latex')
+ylabel('$\log_{10}(\Delta$value$/$reference$)$','Interpreter','latex')
+title (['$' num2str(nstep(end)) '$ iterations to converge'],'interpreter','latex')
+hl = legend('show');
+set(hl,'Interpreter','latex');
+hold off
 %

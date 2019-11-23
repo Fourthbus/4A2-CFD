@@ -92,6 +92,7 @@
       if( nstep > 5) then
         write(3,300) delroavg, delrovxavg, delrovyavg, delroeavg
   300   format(4e13.6)
+! here writing in the convergence plot
         write(31,"(i5,a1,1x,4(f13.6,a1,1x))")  &
              nstep,',',delroavg,',',delrovxavg,',',delrovyavg,',',  &
              delroeavg
