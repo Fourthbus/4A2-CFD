@@ -16,7 +16,7 @@
       real, dimension(i_max,j_max)  ::   pstag, vmach, plotvar
       real       eke,tstat,velsq,tstag
 
-      open(unit=7,file='euler.plt')
+      open(unit=7,file='../output/Interim/euler.plt')
 
       write(7,100) title
 100   format(a80)

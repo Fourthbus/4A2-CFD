@@ -70,7 +70,8 @@
 
 ! Open the file for outputting csv data
 
-      open(unit=7,file='euler.csv')
+      open(unit=7,file='../output/Interim/euler.csv')
+      print *, '123',title
 
 ! Write the csv data for paraview
 

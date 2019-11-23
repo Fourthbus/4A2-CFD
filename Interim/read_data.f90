@@ -14,8 +14,8 @@
 
 ! INSERT your code here
 
-      open(unit=1,file='geom')
-      open(unit=2,file='flow')
+      open(unit=1,file='../geom')
+      open(unit=2,file='../flow')
 
 ! Read in the title and ni and nj from unit 1.
 ! Before you do this, check the format of the data file "geom" and read the
