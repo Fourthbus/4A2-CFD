@@ -67,6 +67,6 @@ module common_block
 !      integer i,j
 
 ! Test number
-      character :: testno
+      character(len=2) :: testno
 
 end module common_block

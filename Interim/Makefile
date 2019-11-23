@@ -23,7 +23,7 @@ euler : $(OBS)
 
 # remove all .o files and Euler for a new start
 clean:
-	rm -f *.o  Euler
+	rm -f *.o  Euler *.mod
 
 # compile .f90 to .o
 %.o:%.f90
