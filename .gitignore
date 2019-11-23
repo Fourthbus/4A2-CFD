@@ -1,5 +1,6 @@
 
 *.o
+*.mod
 Euler
 test5_geom
 test5_flow
