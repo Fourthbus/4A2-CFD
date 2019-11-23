@@ -12,8 +12,9 @@
 ! Open files to store the convergence history. Plotting is done via a separate
 ! program. "euler.log" is for use by pltconv. "pltcv.csv" is for use by paraview.
 
-      open(unit=3,file='../output/Interim/euler.log')
-      open(unit=31,file='../output/Interim/pltcv.csv')
+      call read_data
+      open(unit=3,file='../output/Interim/Euler_' // trim(title) // '.log')
+      open(unit=31,file='../output/Interim/Pltcv_' // trim(title) // '.csv')
 
 ! "read_data": to read in the data on the duct and geometry and flow conditions.
 
