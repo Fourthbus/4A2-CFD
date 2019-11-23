@@ -95,8 +95,8 @@
           ro(i,j)   = ro_guess(ip)
           rovx(i,j) = ro(ip,j) * vx(ip,j)
           rovy(i,j) = ro(ip,j) * vy(ip,j)
-          e         = cv * tstatic(ip) + 0.5 * v_guess(ip)**2.0
-          roe(i,j)  = ro(ip,j) * e
+          ! e         = cv * tstatic(ip) + 0.5 * v_guess(ip)**2.0
+          ! roe(i,j)  = ro(ip,j) * e
         enddo
       enddo
      
@@ -108,7 +108,7 @@
           ro_old(i,j)   = ro(i,j)
           rovx_old(i,j) = rovx(i,j)
           rovy_old(i,j) = rovy(i,j)
-          roe_old(i,j)  = roe(i,j)
+          ! roe_old(i,j)  = roe(i,j)
         end do
       end do      
 

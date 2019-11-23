@@ -7,8 +7,8 @@
 
 ! Local stuff
       integer  ::  i, j
-!      real, dimension(ni,nj) :: v, tstatic
-      real, dimension(i_max,j_max) :: v, tstatic
+      real, dimension(i_max,j_max) :: vsq, tstatic
+
 ! This routine calculates secondary flow variables from the primary ones
 ! at every grid point.
 
@@ -21,10 +21,12 @@
 ! INSERT your code here
       do i = 1,ni
          do j = 1,nj
-            vx(i,j)    = rovx(i,j) / ro(i,j)
-            vy(i,j)    = rovy(i,j) / ro(i,j)
-            p(i,j)     = (gamma - 1) * (roe(i,j) - 0.5 * ro(i,j) * (vx(i,j)**2 + vy(i,j)**2.0))
-            hstag(i,j) = (roe(i,j) + p(i,j)) / ro(i,j)
+            vx(i,j)       = rovx(i,j) / ro(i,j)
+            vy(i,j)       = rovy(i,j) / ro(i,j)
+            vsq (i,j)     = vx(i,j)**2. + vy(i,j)**2.
+            tstatic (i,j) = tstagin - vsq(i,j)/cp/2.
+            p(i,j)        = ro(i,j) * rgas * tstatic(i,j) ! (gamma - 1) * (roe(i,j) - 0.5 * ro(i,j) * (vx(i,j)**2 + vy(i,j)**2.0))
+            hstag(i,j)    = cp * tstagin !(roe(i,j) + p(i,j)) / ro(i,j)
          end do
       end do
 

@@ -45,16 +45,16 @@
 ! and roe(1,j)  from roinlet(j), pstagin, tstagin  and alpha1.
 ! Also set vx(1,j), vy(1,j) and hstag(1,j)
 
-         tstat      = tstagin * (roinlet(j)/rostagin)**(gm1) !here can go wrong tstat seems different for different j
+         tstat      = tstagin * (roinlet(j)/rostagin)**(gm1)
          p(1,j)     = roinlet(j) *rgas*tstat ! pstagin * (tstat/tstagin)**(gamma/gm1)
-         vel        = sqrt(2.0 * cp * (tstagin - tstat))
+         vel        = sqrt(2. * cp * (tstagin - tstat))
          vx(1,j)    = vel * cos(alpha1)
          vy(1,j)    = vel * sin(alpha1)
          rovx(1,j)  = roinlet(j) * vx(1,j)
          rovy(1,j)  = roinlet(j) * vy(1,j)
-         eke        = cv * tstat + 0.5 * vel**2.0
-         roe(1,j)   = roinlet(j) * eke
-         hstag(1,j) = (roe(1,j) + p(1,j)) / roinlet(j) !all above can go wrong DO CHECK!!!
+         ! eke        = cv * tstat + 0.5 * vel**2.0
+         ! roe(1,j)   = roinlet(j) * eke
+         hstag(1,j) = cp * tstagin ! (roe(1,j) + p(1,j)) / roinlet(j) !all above can go wrong DO CHECK!!!
 
       enddo
    

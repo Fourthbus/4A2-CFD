@@ -9,8 +9,8 @@
 
 ! Local stuff
       integer ::  i, j, imax, jmax
-      real    :: delromax, delrovxmax, delrovymax, delroemax, delroavg
-      real    :: delrovxavg, delrovyavg, delroeavg, delta, flow_ratio
+      real    :: delromax, delrovxmax, delrovymax, delroavg ! , delroemax
+      real    :: delrovxavg, delrovyavg, delta, flow_ratio ! , delroeavg
 
 ! This subroutine checks the changes in all primary variables over
 ! the last 5 steps.
@@ -23,11 +23,11 @@
       delromax   = 0.0
       delrovxmax = 0.0
       delrovymax = 0.0
-      delroemax  = 0.0
+      ! delroemax  = 0.0
       delroavg   = 0.0
       delrovxavg = 0.0
       delrovyavg = 0.0
-      delroeavg  = 0.0
+      ! delroeavg  = 0.0
       imax = 0
       jmax = 0
 
@@ -53,9 +53,9 @@
           if(delta > delrovymax) delrovymax = delta
           delrovyavg = delrovyavg + delta
 
-          delta = abs(roe(i,j) - roe_old(i,j))
-          if(delta > delroemax) delroemax = delta
-          delroeavg = delroeavg + delta
+          ! delta = abs(roe(i,j) - roe_old(i,j))
+          ! if(delta > delroemax) delroemax = delta
+          ! delroeavg = delroeavg + delta
 
         end do
       end do
@@ -65,7 +65,7 @@
       delroavg   =  delroavg/ncells/ref_ro
       delrovxavg = delrovxavg/ncells/ref_rovx
       delrovyavg = delrovyavg/ncells/ref_rovy
-      delroeavg  = delroeavg/ncells/ref_roe
+      ! delroeavg  = delroeavg/ncells/ref_roe
       delrovxmax = delrovxmax/ref_rovx
       delrovymax = delrovymax/ref_rovy
 
@@ -82,7 +82,7 @@
           ro_old(i,j)   = ro(i,j)
           rovx_old(i,j) = rovx(i,j)
           rovy_old(i,j) = rovy(i,j)
-          roe_old(i,j)  = roe(i,j)
+          ! roe_old(i,j)  = roe(i,j)
         end do
       end do
 
@@ -90,12 +90,11 @@
 ! for use in convergence plotting (pltconv and paraview respectively).
 
       if( nstep > 5) then
-        write(3,300) delroavg, delrovxavg, delrovyavg, delroeavg
+        write(3,300) delroavg, delrovxavg, delrovyavg ! , delroeavg
   300   format(4e13.6)
 ! here writing in the convergence plot
-        write(31,"(i5,a1,1x,4(f13.6,a1,1x))")  &
-             nstep,',',delroavg,',',delrovxavg,',',delrovyavg,',',  &
-             delroeavg
+        write(31,"(i5,a1,1x,4(f13.6,a1))")  & ! previously write(31,"(i5,a1,1x,4(f13.6,a1,1x))")  &
+             nstep,',',delroavg,',',delrovxavg,',',delrovyavg ! ,',',delroeavg
       end if
 
 ! Write a short output summary to the screen.

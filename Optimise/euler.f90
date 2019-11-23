@@ -67,7 +67,7 @@
         do i=1,ni
           do j=1,nj
             ro_start(i,j) = ro(i,j)
-            roe_start(i,j) = roe(i,j)
+            ! roe_start(i,j) = roe(i,j)
             rovx_start(i,j) = rovx(i,j)
             rovy_start(i,j) = rovy(i,j)
           end do
@@ -98,7 +98,7 @@
         do i=1,ni
           do j=1,nj
             ro  (i,j) = ro_start  (i,j) + ro_inc  (i,j)
-            roe (i,j) = roe_start (i,j) + roe_inc (i,j)
+            ! roe (i,j) = roe_start (i,j) + roe_inc (i,j)
             rovx(i,j) = rovx_start(i,j) + rovx_inc(i,j)
             rovy(i,j) = rovy_start(i,j) + rovy_inc(i,j)
           end do
@@ -109,7 +109,7 @@
         call smooth(ro)
         call smooth(rovx)
         call smooth(rovy)
-        call smooth(roe)
+        ! call smooth(roe)
 
 ! Check convergence and write out summary every 5 steps
 
