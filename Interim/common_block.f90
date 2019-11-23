@@ -66,5 +66,7 @@ module common_block
 ! Local stuff
 !      integer i,j
 
+! Test number
+      character :: testno
 
 end module common_block

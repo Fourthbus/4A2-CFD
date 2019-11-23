@@ -9,13 +9,18 @@
       real ::   conlim_in, smooth_fac_in
       integer :: i, jmid
 
+! ask use to input test number
+      print*, 'Enter test number (one digit): '
+      !testno = '0'
+      read (*,*) testno
+
 ! Assign unit 1 to the file 'geom'
 ! Assign unit 2 to the file 'flow'
 
 ! INSERT your code here
 
-      open(unit=1,file='../geom')
-      open(unit=2,file='../flow')
+      open(unit=1,file='../test' // trim(testno) // '_geom')
+      open(unit=2,file='../test' // trim(testno) // '_flow')
 
 ! Read in the title and ni and nj from unit 1.
 ! Before you do this, check the format of the data file "geom" and read the

@@ -13,12 +13,13 @@
 ! program. "euler.log" is for use by pltconv. "pltcv.csv" is for use by paraview.
 
       call read_data
-      open(unit=3,file='../output/Interim/Euler_' // trim(title) // '.log')
-      open(unit=31,file='../output/Interim/Pltcv_' // trim(title) // '.csv')
+      !open(unit=3,file='../output/Interim/Euler_test' // trim(testno) // '.log')
+      open(unit=31,file='../output/Interim/pltcv_test' // trim(testno) // '.csv')
+      open(unit=3,file='../output/Interim/euler.log')
 
 ! "read_data": to read in the data on the duct and geometry and flow conditions.
 
-      call read_data
+      ! call read_data
 
 ! "generate_grid": to set up the grid coordinates, element areas and projected
 ! lengths of the sides of the elements.
