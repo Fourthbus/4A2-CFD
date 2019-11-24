@@ -23,7 +23,7 @@
         end do
       end if
 
-      open(unit=7,file='../output/Optimise/euler_test' // trim(testno) // '.mat')
+      open(unit=7,file='../output/Optimise/Isentropic/euler_test' // trim(testno) // '.mat')
       write(7,700) ni,nj
   700 format(i5,1x,i5)
       do i=1,ni

@@ -14,8 +14,8 @@
 
       call read_data
 
-      open(unit=3,file='../output/Optimise/euler_test' // trim(testno) // '.log')
-      open(unit=31,file='../output/Optimise/pltcv_test' // trim(testno) // '.csv')
+      open(unit=3,file='../output/Optimise/Isentropic/euler_test' // trim(testno) // '.log')
+      open(unit=31,file='../output/Optimise/Isentropic/pltcv_test' // trim(testno) // '.csv')
 
 ! "read_data": to read in the data on the duct and geometry and flow conditions.
 
@@ -136,8 +136,8 @@
 ! Calculation finished. call "output" to write the plotting file.
 ! N.B. Solution hasn't necessarily converged.
 
-      call output(1)
-      call output_hg(p,1)
+      ! call output(1)
+      ! call output_hg(p,1)
       call output_mat(1)
 !
       close(3)
