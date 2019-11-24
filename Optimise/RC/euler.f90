@@ -13,7 +13,7 @@
 ! program. "euler.log" is for use by pltconv. "pltcv.csv" is for use by paraview.
 
       indir  = '../../'
-      outdir = trim(indir) // 'output/Optimise/Isentropic/'
+      outdir = trim(indir) // 'output/Optimise/RC/'
 
       call read_data
 
