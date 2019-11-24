@@ -43,7 +43,7 @@
             eke      = 0.5*(vx(i,j)*vx(i,j) + vy(i,j)*vy(i,j))
             tstat    = (hstag(i,j) - eke)/cp
             p(i,j)   = ro(i,j)*rgas*tstat
-            roe(i,j) = ro(i,j)*(cv*tstat + eke)
+            ! roe(i,j) = ro(i,j)*(cv*tstat + eke)
           end do
         end do
 
@@ -115,7 +115,7 @@
             vy(i,j)  = 0.
             tstat    = 288.15
             p(i,j)   = ro(i,j)*rgas*tstat
-            roe(i,j) = ro(i,j)*cv*tstat
+            ! roe(i,j) = ro(i,j)*cv*tstat
           end do
         end do
 

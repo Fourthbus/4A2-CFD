@@ -89,7 +89,7 @@
 ! for each cell (calculates the residuals) and sets the increments for the nodal values.
 
         call sum_fluxes(fluxi_mass,fluxj_mass,delro  , ro_inc)
-        call sum_fluxes(fluxi_enth,fluxj_enth,delroe ,roe_inc)
+        ! call sum_fluxes(fluxi_enth,fluxj_enth,delroe ,roe_inc)
         call sum_fluxes(fluxi_xmom,fluxj_xmom,delrovx,rovx_inc)
         call sum_fluxes(fluxi_ymom,fluxj_ymom,delrovy,rovy_inc)
 !

@@ -14,7 +14,7 @@ module common_block
       integer ::   ni,nj
 
 ! Variables to hold node increments
-      real, dimension(i_max,j_max) ::  ro_inc, roe_inc, rovx_inc, rovy_inc
+      real, dimension(i_max,j_max) ::  ro_inc, rovx_inc, rovy_inc ! , roe_inc
 
 ! Variables to implement Runge Kutta option
       real, dimension(i_max,j_max) ::  ro_start, roe_start, rovx_start, rovy_start
@@ -28,16 +28,16 @@ module common_block
       real ::    rgas, gamma, cp, cv, fga
 
 ! Primary Variables (Values at nodes)
-      real, dimension(i_max,j_max)  ::  ro, rovx, rovy, roe
+      real, dimension(i_max,j_max)  ::  ro, rovx, rovy ! , roe
 
 ! Residuals (changes in cells)
-      real, dimension(i_max,j_max)  ::  delro, delrovx, delrovy, delroe
+      real, dimension(i_max,j_max)  ::  delro, delrovx, delrovy ! , delroe
 
 ! Convergence check
-      real, dimension(i_max,j_max)  ::  ro_old, rovx_old, rovy_old, roe_old, diffrovx
+      real, dimension(i_max,j_max)  ::  ro_old, rovx_old, rovy_old, diffrovx ! , roe_old
 
 ! Smoothing variables for deferred correction option
-      real, dimension(i_max,j_max)  ::  corr_ro, corr_rovx, corr_rovy, corr_roe
+      real, dimension(i_max,j_max)  ::  corr_ro, corr_rovx, corr_rovy ! , corr_roe
       real  ::  fcorr
 
 ! Other variables
@@ -58,7 +58,7 @@ module common_block
       real  ::  pstagin, tstagin, alpha1, astag, pdown
 
 ! Useful reference values
-      real ::  ref_p, ref_ro, ref_t, ref_v, ref_rovx, ref_rovy, ref_roe, roin
+      real ::  ref_p, ref_ro, ref_t, ref_v, ref_rovx, ref_rovy, roin ! , ref_roe
 
 ! Initial guess variables
       real, dimension(i_max) ::  aflow, v_guess, ro_guess
