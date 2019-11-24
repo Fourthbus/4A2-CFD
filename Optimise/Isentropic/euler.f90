@@ -15,6 +15,11 @@
       indir  = '../../'
       outdir = trim(indir) // 'output/Optimise/Isentropic/'
 
+! ask use to input test number
+      print*, 'Enter test number (one digit): '
+      ! testno = '1'
+      read (*,*) testno
+
       call read_data
 
       open(unit=3,file=trim(outdir) // 'euler_test' // trim(testno) // '.log')

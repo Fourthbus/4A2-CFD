@@ -9,11 +9,6 @@
       real ::   conlim_in, smooth_fac_in
       integer :: i, jmid
 
-! ask use to input test number
-      print*, 'Enter test number (one digit): '
-      !testno = '0'
-      read (*,*) testno
-
 ! Assign unit 1 to the file 'geom'
 ! Assign unit 2 to the file 'flow'
 

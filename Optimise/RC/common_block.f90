@@ -17,9 +17,9 @@ module common_block
       real, dimension(i_max,j_max) ::  ro_inc, rovx_inc, rovy_inc ! , roe_inc
 
 ! Variables to implement Runge Kutta option
-      real, dimension(i_max,j_max) ::  ro_start, roe_start, rovx_start, rovy_start
+      real, dimension(i_max,j_max) ::  ro_start, rovx_start, rovy_start ! , roe_start
       real :: frkut
-      integer  ::  nrkut, nrkut_max
+      integer  ::  nrkut, nrkut_max, nrkuts
 
 ! Title of test case (read in with data)
       character(LEN=80) :: title

@@ -1,4 +1,4 @@
-      subroutine sum_fluxes(iflux,jflux,delprop,prop_inc)
+      subroutine sum_fluxes(iflux,jflux,delprop,prop_inc,f_rkut)
 
       use common_block
 
@@ -11,7 +11,7 @@
 
       real, dimension(i_max,j_max) ::  iflux, jflux, prop_inc, delprop,  &
                                        previous, store
-!      real :: frkut
+      real :: f_rkut ! YES, it's weird in here has to use an explicit version of frkut, error if use the one in common_block
 
 ! Local stuff
       integer ::    i, j
@@ -33,7 +33,7 @@
 
     do i = 1,ni-1
       do j = 1,nj-1
-        delprop(i,j) = ( deltat/area(i,j) ) * ( iflux(i,j) - iflux(i+1,j) + jflux(i,j) - jflux(i,j+1) )
+        delprop(i,j) = ( f_rkut*deltat/area(i,j) ) * ( iflux(i,j) - iflux(i+1,j) + jflux(i,j) - jflux(i,j+1) )
       enddo
     enddo
 

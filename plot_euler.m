@@ -3,9 +3,9 @@ clear
 %
 % Change here for different plots %
 %
-stage = 'Optimise';
+stage = 'Optimise/RC';
 %
-testno = '1';
+testno = '0';
 %
 % % % % % % % % % % % % % % % % % % 
 %
@@ -133,7 +133,6 @@ hold off
 %
 % CONVERGENCE PLOT %
 %
-% euler bit
 pltconv_file = ['output/' stage '/pltcv_test' testno '.csv'];
 pltconv = csvread (pltconv_file);
 nstep       = pltconv(:,1);
