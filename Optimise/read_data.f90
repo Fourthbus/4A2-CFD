@@ -82,6 +82,6 @@
       ref_v     =  sqrt(2*cp*(tstagin-ref_t))
       ref_rovx  =  roin*ref_v
       ref_rovy  =  ref_rovx
-      ref_roe   =  roin*cv*(tstagin-ref_t)
+      ! ref_roe   =  roin*cv*(tstagin-ref_t)
 
       end

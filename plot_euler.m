@@ -140,7 +140,9 @@ nstep       = pltconv(:,1);
 delroavg    = pltconv(:,2);
 delrovxavg  = pltconv(:,3);
 delrovyavg  = pltconv(:,4);
-delroeavg   = pltconv(:,5);
+try
+    delroeavg   = pltconv(:,5);
+end
 %
 figure('Name','Convergence');
 hold on

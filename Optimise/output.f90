@@ -44,7 +44,7 @@
               kenergy    = 0.5 * ro(i,j) * &
                  (q(2,i,j,k)**2 + q(3,i,j,k)**2 + q(4,i,j,k)**2 )
 
-              q(5,i,j,k) = (gamma-1) * (roe(i,j) - kenergy)
+              ! q(5,i,j,k) = (gamma-1) * (roe(i,j) - kenergy)
 
             end do
           end do
@@ -60,7 +60,7 @@
               q(2,i,j,k) = 0.0
               q(3,i,j,k) = 0.0
               q(4,i,j,k) = 0.0
-              q(5,i,j,k) = 101300.0
+              ! q(5,i,j,k) = 101300.0
 
             end do
           end do
@@ -81,7 +81,7 @@
             write(7,"(8(f13.6,a1,1x))") &
               xs(1,i,j,k),',', xs(2,i,j,k),',', xs(3,i,j,k),',', &
               q(1,i,j,k),',', q(2,i,j,k),',', q(3,i,j,k),',',    &
-              q(4,i,j,k),',', q(5,i,j,k)
+              q(4,i,j,k) ! ,',', q(5,i,j,k)
           end do
         end do
       end do

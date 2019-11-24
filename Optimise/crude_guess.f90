@@ -28,13 +28,13 @@
            rovx(i,j) = rodown*xvel
            rovy(i,j) = rodown*yvel
            ro(i,j)   = rodown
-           roe(i,j)  = rodown*(cv*tdown + 0.5*vdown*vdown)
+           ! roe(i,j)  = rodown*(cv*tdown + 0.5*vdown*vdown)
         end do
 
         rovx(ni,j) = rovx(ni-1,j)
         rovy(ni,j) = rovy(ni-1,j)
         ro(ni,j)   = ro(ni-1,j)
-        roe(ni,j)  = roe(ni-1,j)
+        ! roe(ni,j)  = roe(ni-1,j)
 
       end do
 
