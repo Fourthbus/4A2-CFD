@@ -12,7 +12,7 @@ FC = ifort
 # Option of Compilation
 
 # debug option
-FFLAGS = -g -parallel
+FFLAGS = -g
 
 # select the optimising option by delete # in the following line
 #FFLAGS = -O2
