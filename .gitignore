@@ -2,6 +2,7 @@
 *.o
 *.mod
 Euler
+Makefile
 test5_geom
 test5_flow
 test4_geom
