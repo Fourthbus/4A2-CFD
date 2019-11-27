@@ -3,7 +3,7 @@ clear
 %
 % Change here for different plots %
 %
-stage = 'Optimise/RC';
+stage = 'Optimise/DCF';
 %
 testno = '0';
 %

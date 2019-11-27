@@ -7,7 +7,7 @@
 
 ! Local stuff
       real ::   conlim_in, smooth_fac_in
-      integer :: i, jmid
+      integer :: i, jmid, io
 
 ! Assign unit 1 to the file 'geom'
 ! Assign unit 2 to the file 'flow'
@@ -45,8 +45,7 @@
 !       nsteps, conlim_in
 
 ! INSERT your code here
-
-      read(2,*) rgas,gamma,pstagin,tstagin,alpha1,pdown,cfl,smooth_fac_in,nsteps,conlim_in
+      read(2,*) rgas,gamma,pstagin,tstagin,alpha1,pdown,cfl,smooth_fac_in,nsteps,conlim_in,fcorr ! DCF corr be careful with files
 
 ! Set some other variables that will be used throughout the
 ! calculation. Change alpha1 to radians. Scale the smoothing factor

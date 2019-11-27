@@ -1,4 +1,4 @@
-      subroutine smooth(prop)
+      subroutine smooth(prop, corr_prop)
 
 
       use common_block
@@ -42,8 +42,8 @@
             corrnew = fcorr * (prop(i,j) - avg) ! DCF
 
 ! INSERT your code here
-            store(i,j) = sf * avg + (sfm1) * prop(i,j)
-            store(i,j) = 0.99*store(i,j) + 0.01*corrnew
+            corr_prop(i,j) = 0.99*corr_prop(i,j) + 0.01*corrnew ! DCF
+            store(i,j) = sf * (avg+corr_prop(i,j)) + (sfm1) * prop(i,j)
 
           enddo
 
@@ -55,13 +55,13 @@
         ! WHY these are calculated as this, write in report
 
 ! INSERT your code here to smooth the surface values
-        corrnew = fcorr * (prop(i,1) - avg1) ! DCF
-        store(i,1) = sf * avg1 + (sfm1) * prop(i,1)
-        store(i,1) = 0.99*store(i,1) + 0.01*corrnew
+        corrnew         = fcorr * (prop(i,1) - avg1) ! DCF
+        corr_prop(i,1)  = 0.99*corr_prop(i,1) + 0.01*corrnew
+        store(i,1)      = sf * (avg1+corr_prop(i,i)) + (sfm1) * prop(i,1)
 
-        corrnew = fcorr * (prop(i,nj) - avgnj) ! DCF
-        store(i,nj) = sf * avgnj + (sfm1) * prop(i,nj)
-        store(i,nj) = 0.99*store(i,nj) + 0.01*corrnew
+        corrnew         = fcorr * (prop(i,nj) - avgnj) ! DCF
+        corr_prop(i,nj) = 0.99*corr_prop(i,nj) + 0.01*corrnew
+        store(i,nj)     = sf * (avgnj+corr_prop(i,nj)) + (sfm1) * prop(i,nj)
 
       enddo
 

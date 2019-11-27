@@ -8,6 +8,7 @@
 
 ! Local stuff
       integer i,j
+      ! makeinteger ncorr,ncorrs ! DCF debug stuff
 
 ! Open files to store the convergence history. Plotting is done via a separate
 ! program. "euler.log" is for use by pltconv. "pltcv.csv" is for use by paraview.
@@ -20,14 +21,19 @@
       ! testno = '1'
       read (*,*) testno
 
+! DCF corr debugging
+! This section allows code to log variation with iteration and DCF correction factor, saved in fcorr_x.csv
+      ! open(unit=32,file=trim(outdir) // 'fcorr_test' // trim(testno) // '.csv')
+      ! ncorrs = 50
+      ! do ncorr = 0,ncorrs
+
+! "read_data": to read in the data on the duct and geometry and flow conditions.
       call read_data
 
       open(unit=3,file=trim(outdir) // 'euler_test' // trim(testno) // '.log')
       open(unit=31,file=trim(outdir) // 'pltcv_test' // trim(testno) // '.csv')
 
-! "read_data": to read in the data on the duct and geometry and flow conditions.
-
-      ! call read_data
+       !mak fcorr = ncorr * 1./ncorrs ! DCF debug
 
 ! "generate_grid": to set up the grid coordinates, element areas and projected
 ! lengths of the sides of the elements.
@@ -121,9 +127,9 @@
 
 ! Smooth the problem to ensure it remains stable.
 
-          call smooth(ro)
-          call smooth(rovx)
-          call smooth(rovy)
+          call smooth(ro, corr_ro)
+          call smooth(rovx, corr_rovx)
+          call smooth(rovy, corr_rovy)
           ! call smooth(roe)
 
 ! Runge-Kutta end here
@@ -140,10 +146,13 @@
         if( emax < conlim .and.  eavg < (0.5*conlim) ) then
           write(6,*) ' Calculation converged in ',nstep,' iterations'
           write(6,*) ' To a convergence limit of ', conlim
+          write(6,*) nstep
+          ! write(32,"(i6,a1,1x,f5.4,)")  & ! previously write(31,"(i5,a1,1x,4(f13.6,a1,1x))") nstep,',',fcorr ! ,',',delroeavg! DCF debug use only
           exit
         endif
-
       end do
+      ! end do ! DCF debug only
+
       !call output(1)
       !call output_mat(1)
 
@@ -160,6 +169,7 @@
 !
       close(3)
       close(31)
+      ! close(32) ! DCF debug onlu
 
 
       end
