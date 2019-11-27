@@ -13,7 +13,7 @@
 ! program. "euler.log" is for use by pltconv. "pltcv.csv" is for use by paraview.
 
       indir  = '../../'
-      outdir = trim(indir) // 'output/Optimise/RC/'
+      outdir = trim(indir) // 'output/Optimise/DCF/'
 
 ! ask use to input test number
       print*, 'Enter test number (one digit): '
