@@ -25,13 +25,13 @@
 
       open(unit=7,file=trim(outdir) // 'euler_test' // trim(testno) // '.mat')
       write(7,700) ni,nj
-  700 format(i5,1x,i5)
+  700 format(i7,1x,i7)
       do i=1,ni
         do j=1,nj
           write(7,701) x(i,j),y(i,j),ro(i,j),vx(i,j),vy(i,j),p(i,j)
         end do
       end do
-  701 format(2(1x,f8.5),f8.5,1x,f8.2,1x,f8.2,1x,f10.1)
+  701 format(2(1x,f10.5),f10.5,1x,f10.2,1x,f10.2,1x,f12.1)
 
       close(7)
 

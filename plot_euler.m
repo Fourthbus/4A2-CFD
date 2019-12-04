@@ -3,9 +3,9 @@ clear
 %
 % Change here for different plots %
 %
-stage = 'Optimise/supersonic_DCF';
+stage = 'Optimise/DCF';
 %
-testno = '4';
+testno = '3';
 %
 % % % % % % % % % % % % % % % % % % 
 %
