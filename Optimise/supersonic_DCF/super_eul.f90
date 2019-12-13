@@ -14,7 +14,7 @@
 ! program. "euler.log" is for use by pltconv. "pltcv.csv" is for use by paraview.
 
       indir  = '../../'
-      outdir = trim(indir) // 'output/Optimise/supersonic_DCF/'
+      outdir = trim(indir) // 'output/Optimise/DCF/'
 
 ! ask use to input test number
       ! print*, 'Enter test number (one digit): '
@@ -31,7 +31,7 @@
       call read_data
 
 ! supersonic pressure affiliation M = 1.6
-      pdown = .23527 * pstagin
+      pdown = .1278 * pstagin
 
       open(unit=3,file=trim(outdir) // 'euler_test' // trim(testno) // '.log')
       open(unit=31,file=trim(outdir) // 'pltcv_test' // trim(testno) // '.csv')

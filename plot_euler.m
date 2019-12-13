@@ -3,9 +3,10 @@ clear
 %
 % Change here for different plots %
 %
+%stage = 'Interim';
 stage = 'Optimise/DCF';
 %
-testno = '3';
+testno = '0';
 %
 % % % % % % % % % % % % % % % % % % 
 %
@@ -49,6 +50,7 @@ V = linspace(pmin,pmax,21);
 [C,h] = contourf(x,y,p,V,'LineWidth',.5);
 %clabel(C,'manual','FontSize',14);
 colorbar
+set(gcf,'Position',[0 200 500 140])
 hold off;
 %pause
 %
@@ -91,6 +93,7 @@ p0max = max(max(p0));
 p0min = min(min(p0));
 title (['$P_{0,max}=' num2str(p0max,'%10.4e\n') '\qquad P_{0,min}=' num2str(p0min,'%10.4e\n') '$'],'interpreter','latex')
 colorbar
+set(gcf,'Position',[0 900 500 140])
 hold off
 %
 % Contour Mach number
@@ -105,6 +108,7 @@ machmax = max(max(mach));
 machmin = min(min(mach));
 title (['$M_{max}=' num2str(machmax,'%10.4f\n') '\qquad M_{min}=' num2str(machmin,'%10.4f\n') '$'],'interpreter','latex')
 colorbar
+set(gcf,'Position',[0 600 500 140])
 %
 rgas = 287.1;
 cp = rgas*gam/(gam-1.0); %change according to gas
@@ -128,6 +132,7 @@ plot(x(:,nj),y(:,nj),'b','LineWidth',1);
 dsmax = max(max(ds));
 title (['$ds_{max}=' num2str(dsmax,'%10.2f\n') '$'],'interpreter','latex')
 colorbar
+set(gcf,'Position',[0 400 500 140])
 hold off
 %
 %

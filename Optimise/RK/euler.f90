@@ -17,7 +17,7 @@
 
 ! ask use to input test number
       print*, 'Enter test number (one digit): '
-      ! testno = '1'
+      ! testno = '0'
       read (*,*) testno
 
       call read_data

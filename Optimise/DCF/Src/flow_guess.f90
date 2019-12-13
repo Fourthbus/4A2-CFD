@@ -41,7 +41,7 @@
 ! Set a limit to the maximum allowable mach number in the initial
 ! guess. call this "machlim". calculate the corresponding temperature.
 
-      machlim = 10.0
+      machlim = 1.0
       tlim = tstagin/(1.0 + 0.5*(gamma-1.0)*machlim*machlim)
 
 ! Now estimate the velocity and density at every "i" line.
